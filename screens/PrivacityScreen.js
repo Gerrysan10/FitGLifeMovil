@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Linking, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Linking, ScrollView, Alert } from 'react-native';
 import Title from '../components/Title';
 
 const EmailLink = ({ email, subject, body }) => {
@@ -9,7 +9,7 @@ const EmailLink = ({ email, subject, body }) => {
 
     return (
         <Text style={styles.gmail} onPress={handleEmailLink}>
-            {email}.
+            {email}
         </Text>
     );
 };
@@ -22,77 +22,136 @@ const PrivacityScreen = () => {
             </View>
             <ScrollView style={styles.conttext}>
                 <Text style={styles.text}>
-                    <Text style={styles.heading}>Última actualización: 30 de mayo de 2024</Text>{"\n\n"}
+                    <Text style={styles.heading}>Última actualización: 30 de septiembre de 2024</Text>{"\n\n"}
                     <Text style={styles.paragraph}>
-                        FitGlife ("nosotros", "nuestro" o "nos") se compromete a proteger la privacidad de nuestros usuarios ("usted" o "su"). Esta Política de Privacidad describe cómo recopilamos, usamos y compartimos su información cuando utiliza nuestra aplicación móvil FitGlife (la "Aplicación").
+                        FitGLife, desarrollada por gera35san@gmail.com, se compromete a proteger la privacidad de nuestros usuarios. Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos su información cuando utiliza nuestra aplicación móvil FitGLife.
                     </Text>{"\n\n"}
+                    
+
                     <Text style={styles.subheading}>1. Información que Recopilamos</Text>
-                    <Text style={styles.subsubheading}>{"\n"}1.1. Información Personal{"\n"}</Text>
+                    <Text style={styles.subsubheading}>{"\n\n"}1.1. Información Personal{"\n"}</Text>
                     <Text style={styles.paragraph}>
-                        Podemos recopilar la siguiente información personal cuando usted se registra o utiliza nuestra Aplicación:
+                        Recopilamos la siguiente información personal cuando usted se registra o utiliza nuestra Aplicación:
                     </Text>
                     <Text style={styles.listItem}>{"\n"}- Nombre y apellidos</Text>
                     <Text style={styles.listItem}>{"\n"}- Dirección de correo electrónico</Text>
-                    <Text style={styles.listItem}>{"\n"}- Número de teléfono</Text>
-                    <Text style={styles.listItem}>{"\n"}- Información del perfil de usuario, incluida su foto de perfil, edad, y género</Text>{"\n"}
-                    <Text style={styles.subsubheading}>1.2. Información de Uso{"\n"}</Text>
+                    <Text style={styles.listItem}>{"\n"}- Información del perfil de usuario, incluida su foto de perfil (opcional) y télefono</Text>{"\n"}
+
+                    <Text style={styles.subsubheading}>1.2. Datos de Medidas Corporales{"\n"}</Text>
                     <Text style={styles.paragraph}>
-                        Recopilamos información sobre su interacción con la Aplicación, que puede incluir:
+                        Con su consentimiento expreso, recopilamos las siguientes medidas corporales:
                     </Text>
-                    <Text style={styles.listItem}>{"\n"}- Datos de actividad física (por ejemplo, pasos, calorías quemadas, rutas de ejercicio)</Text>
-                    <Text style={styles.listItem}>{"\n"}- Información sobre su dispositivo (modelo, sistema operativo, identificadores únicos)</Text>
-                    <Text style={styles.listItem}>{"\n"}- Dirección IP</Text>
-                    <Text style={styles.listItem}>{"\n"}- Tiempos de acceso y duración de las sesiones</Text>{"\n"}
-                    <Text style={styles.subsubheading}>1.3. Información de Ubicación{"\n"}</Text>
-                    <Text style={styles.paragraph}>
-                        Podemos recopilar información sobre su ubicación geográfica precisa con su consentimiento para mejorar las funciones de la Aplicación, como el seguimiento de rutas de ejercicio.
-                    </Text>{"\n\n"}
+                    <Text style={styles.listItem}>{"\n"}- Peso</Text>
+                    <Text style={styles.listItem}>{"\n"}- Altura</Text>
+                    <Text style={styles.listItem}>{"\n"}- Medidas corporales específicas (como circunferencia de cintura, cadera, etc.)</Text>{"\n\n"}
+
                     <Text style={styles.subheading}>2. Cómo Usamos Su Información{"\n"}</Text>
                     <Text style={styles.paragraph}>
-                        Utilizamos la información recopilada para los siguientes propósitos:
+                        Utilizamos la información recopilada únicamente para:
                     </Text>
-                    <Text style={styles.listItem}>{"\n"}- Proveer y mejorar la funcionalidad de la Aplicación</Text>
-                    <Text style={styles.listItem}>{"\n"}- Personalizar su experiencia de usuario</Text>
-                    <Text style={styles.listItem}>{"\n"}- Comunicarnos con usted acerca de actualizaciones, ofertas y noticias relacionadas con la Aplicación</Text>
-                    <Text style={styles.listItem}>{"\n"}- Analizar el uso de la Aplicación para desarrollar nuevas funciones y mejorar las existentes</Text>
-                    <Text style={styles.listItem}>{"\n"}- Proporcionar soporte técnico y responder a sus consultas</Text>{"\n\n"}
-                    <Text style={styles.subheading}>3. Compartición de Información{"\n"}</Text>
+                    <Text style={styles.listItem}>{"\n"}- Crear y mantener su perfil de usuario</Text>
+                    <Text style={styles.listItem}>{"\n"}- Permitirle registrar y dar seguimiento a sus medidas corporales</Text>
+                    <Text style={styles.listItem}>{"\n"}- Personalizar su experiencia dentro de la aplicación</Text>
+                    <Text style={styles.listItem}>{"\n"}- Proporcionar soporte técnico cuando lo solicite</Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>3. Protección de su Información{"\n"}</Text>
                     <Text style={styles.paragraph}>
-                        No compartimos su información personal con terceros, excepto en las siguientes circunstancias:
-                    </Text>
-                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Con su consentimiento</Text>: Podemos compartir su información cuando tengamos su consentimiento expreso para hacerlo.</Text>
-                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Proveedores de Servicios</Text>: Podemos compartir información con proveedores de servicios que nos ayuden a operar la Aplicación y realizar funciones en nuestro nombre, bajo estrictas obligaciones de confidencialidad.</Text>
-                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Cumplimiento Legal</Text>: Podemos divulgar su información si es necesario para cumplir con una obligación legal, responder a solicitudes legales o proteger nuestros derechos y la seguridad de nuestros usuarios.</Text>{"\n\n"}
-                    <Text style={styles.subheading}>4. Seguridad de la Información{"\n"}</Text>
-                    <Text style={styles.paragraph}>
-                        Implementamos medidas de seguridad razonables para proteger su información personal contra accesos no autorizados, uso indebido o divulgación. Sin embargo, ningún sistema de transmisión de datos por Internet o de almacenamiento electrónico es completamente seguro, por lo que no podemos garantizar una seguridad absoluta.
+                        Consideramos sus datos de medidas corporales como información sensible de salud y aplicamos medidas de seguridad específicas para protegerlos. No compartimos esta información con terceros sin su consentimiento explícito, excepto cuando sea requerido por ley.
                     </Text>{"\n\n"}
-                    <Text style={styles.subheading}>5. Sus Derechos{"\n"}</Text>
+
+                    <Text style={styles.subheading}>4. Sus Derechos{"\n"}</Text>
                     <Text style={styles.paragraph}>
-                        Usted tiene los siguientes derechos con respecto a su información personal:
+                        Usted tiene los siguientes derechos sobre sus datos personales:
                     </Text>
-                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Acceso</Text>: Puede solicitar una copia de la información personal que tenemos sobre usted.</Text>
-                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Corrección</Text>: Puede solicitar que corrijamos cualquier información personal inexacta.</Text>
-                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Eliminación</Text>: Puede solicitar que eliminemos su información personal.</Text>
-                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Restricción</Text>: Puede solicitar que restrinjamos el procesamiento de su información personal.</Text>
-                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Portabilidad</Text>: Puede solicitar que le proporcionemos su información personal en un formato estructurado, comúnmente utilizado y legible por máquina.</Text>
+                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Acceso</Text>: Solicitar una copia de sus datos personales</Text>
+                    <Text style={styles.listItem}>{"\n"}- <Text style={styles.bold}>Eliminación</Text>: Solicitar la eliminación de sus datos</Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>5. Conservación de Datos{"\n"}</Text>
                     <Text style={styles.paragraph}>
-                        Para ejercer estos derechos, por favor contáctenos a través de nuestro correo electrónico: soportefitglife@gmail.com.
+                        Mantendremos sus datos personales y medidas corporales mientras su cuenta permanezca activa. Puede solicitar la eliminación de su cuenta y sus datos en cualquier momento.
                     </Text>{"\n\n"}
+
                     <Text style={styles.subheading}>6. Cambios en la Política de Privacidad{"\n"}</Text>
                     <Text style={styles.paragraph}>
-                        Podemos actualizar esta Política de Privacidad ocasionalmente. Le notificaremos sobre cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la fecha de "Última actualización" en la parte superior. Le recomendamos revisar esta Política de Privacidad periódicamente para estar informado sobre cómo protegemos su información.
+                        Podemos actualizar esta Política de Privacidad ocasionalmente. Le notificaremos sobre cualquier cambio significativo a través de la aplicación y actualizando la fecha en la parte superior de esta política.
                     </Text>{"\n\n"}
+
                     <Text style={styles.subheading}>7. Contacto{"\n"}</Text>
                     <Text style={styles.paragraph}>
-                        Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad, no dude en contactarnos a través del correo electronico:{"\n"}
+                        Si tiene preguntas sobre esta Política de Privacidad o desea ejercer sus derechos, contáctenos en:{"\n"}
                     </Text>
-                    <EmailLink email="soportefitglife@gmail.com" subject="Consulta" body="Escribe tu mensaje aquí" />
+                    <EmailLink email="gera35san@gmail.com" subject="Consulta de Privacidad" body="Escriba su mensaje aquí" />{"\n\n"}
+                    <Text style={styles.heading}>Términos y Condiciones</Text>{"\n\n"}
+
+                    <Text style={styles.paragraph}>
+                        Al descargar, instalar o usar la aplicación FitGLife, usted acepta estar sujeto a estos Términos y Condiciones.
+                    </Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>1. Uso de la Aplicación</Text>{"\n\n"}
+                    <Text style={styles.subsubheading}>1.1. Propósito de la Aplicación{"\n"}</Text>
+                    <Text style={styles.paragraph}>
+                        FitGLife es una aplicación diseñada para el registro y seguimiento de medidas corporales con fines de bienestar personal.
+                    </Text>{"\n"}
+                    
+                    <Text style={styles.subsubheading}>1.2. Requisitos de Edad{"\n"}</Text>
+                    <Text style={styles.paragraph}>
+                        Usted debe ser mayor de 18 años para usar esta aplicación. Si es menor de edad, necesita el consentimiento de sus padres o tutores legales.
+                    </Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>2. Cuenta de Usuario</Text>{"\n\n"}
+                    <Text style={styles.paragraph}>
+                        Para utilizar la aplicación, debe cumplir con los siguientes requisitos:
+                    </Text>
+                    <Text style={styles.listItem}>{"\n"}- Crear una cuenta con información precisa y actualizada</Text>
+                    <Text style={styles.listItem}>{"\n"}- Mantener la seguridad de su cuenta y contraseña</Text>
+                    <Text style={styles.listItem}>{"\n"}- Aceptar que podemos suspender o terminar su cuenta por violación de términos</Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>3. Uso Aceptable</Text>{"\n\n"}
+                    <Text style={styles.paragraph}>
+                        Al utilizar nuestra aplicación, usted se compromete a no:
+                    </Text>
+                    <Text style={styles.listItem}>{"\n"}- Usar la aplicación para fines ilegales</Text>
+                    <Text style={styles.listItem}>{"\n"}- Intentar acceder sin autorización a la aplicación</Text>
+                    <Text style={styles.listItem}>{"\n"}- Interferir con el funcionamiento de la aplicación</Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>4. Propiedad Intelectual</Text>{"\n\n"}
+                    <Text style={styles.paragraph}>
+                        Todos los derechos de propiedad intelectual relacionados con la aplicación están protegidos:
+                    </Text>
+                    <Text style={styles.listItem}>{"\n"}- La aplicación y su contenido están protegidos por derechos de autor</Text>
+                    <Text style={styles.listItem}>{"\n"}- No está permitida la copia, modificación o distribución sin autorización</Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>5. Limitación de Responsabilidad</Text>{"\n\n"}
+                    <Text style={styles.paragraph}>
+                        Es importante que entienda nuestras limitaciones de responsabilidad:
+                    </Text>
+                    <Text style={styles.listItem}>{"\n"}- La aplicación se proporciona "tal cual" sin garantías</Text>
+                    <Text style={styles.listItem}>{"\n"}- No nos responsabilizamos por decisiones basadas en los datos registrados</Text>
+                    <Text style={styles.listItem}>{"\n"}- Recomendamos consultar con profesionales de la salud para decisiones sobre su bienestar</Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>6. Modificaciones</Text>{"\n\n"}
+                    <Text style={styles.paragraph}>
+                        Nos reservamos el derecho de realizar cambios:
+                    </Text>
+                    <Text style={styles.listItem}>{"\n"}- Podemos modificar estos términos en cualquier momento</Text>
+                    <Text style={styles.listItem}>{"\n"}- Los cambios entran en vigor inmediatamente después de su publicación</Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>7. Ley Aplicable</Text>{"\n\n"}
+                    <Text style={styles.paragraph}>
+                        Estos términos se rigen por las leyes de México.
+                    </Text>{"\n\n"}
+
+                    <Text style={styles.subheading}>8. Contacto</Text>{"\n"}
+                    <Text style={styles.paragraph}>
+                        Para cualquier consulta sobre estos términos, contáctenos en:{"\n"}
+                    </Text>
+                    <EmailLink email="soportefitglife@gmail.com" subject="Consulta sobre Términos y Condiciones" body="Escriba su mensaje aquí" />
                 </Text>
+                
             </ScrollView>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {

@@ -11,7 +11,7 @@ const Search = ({ functionsearch }) => {
     <View style={styles.search}>
       <TextInput
         style={styles.inputsearch}
-        placeholder="Buscar rutina"
+        placeholder="Buscar"
         onChangeText={handleSearch}
         caretHidden={true}
       />

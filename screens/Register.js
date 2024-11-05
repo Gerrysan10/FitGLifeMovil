@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, KeyboardAvoidingView, StatusBar, Image, TextInput, Platform, Alert, ActivityIndicator, Modal } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, KeyboardAvoidingView, StatusBar, Image, TextInput, Platform, Alert, ActivityIndicator, Modal, Linking, TouchableOpacity } from 'react-native';
 import ContNavAuth from '../components/ContNavAuth';
 import imguser from '../images/Icons/user.png';
 import imggmail from '../images/Icons/gmail.png';
@@ -29,7 +29,21 @@ const RegisterScreen = () => {
     password: '',
   });
 
+  const handleTermsPress = async () => {
+    try {
+      await Linking.openURL('https://fit-g-life-web.vercel.app/terminos-y-condiciones');
+    } catch (error) {
+      Alert.alert('Error', 'No se pudo abrir la página');
+    }
+  };
 
+  const handlePrivacyPress = async () => {
+    try {
+      await Linking.openURL('https://fit-g-life-web.vercel.app/politica-de-privacidad');
+    } catch (error) {
+      Alert.alert('Error', 'No se pudo abrir la página');
+    }
+  };
 
   const storeUserData = async (userData) => {
     try {
@@ -149,29 +163,36 @@ const RegisterScreen = () => {
             />
           </View>
           <View style={styles.contcheckbox}>
-            <CheckBox
-              title={
-                <Text style={styles.checkboxText}>
-                  He leído y acepto los Términos y Condiciones
-                </Text>
-              }
-              checked={isCheckedTerms}
-              onPress={() => setIsCheckedTerms(!isCheckedTerms)}
-              containerStyle={styles.checkboxContainer}
-              checkedColor='#6ABDA6'
-            />
-            <CheckBox
-              title={
-                <Text style={styles.checkboxText}>
-                  ¿Usted ha leído y acepta la Política de Privacidad?
-                </Text>
-              }
-              checked={isCheckedPrivacy}
-              onPress={() => setIsCheckedPrivacy(!isCheckedPrivacy)}
-              containerStyle={styles.checkboxContainer}
-              checkedColor='#6ABDA6'
-            />
-          </View>
+        <CheckBox
+          title={
+            <View style={styles.checkboxContentContainer}>
+              <Text style={styles.checkboxText}>He leído y acepto los </Text>
+              <TouchableOpacity onPress={handleTermsPress}>
+                <Text style={styles.linkText}>Términos y Condiciones</Text>
+              </TouchableOpacity>
+            </View>
+          }
+          checked={isCheckedTerms}
+          onPress={() => setIsCheckedTerms(!isCheckedTerms)}
+          containerStyle={styles.checkboxContainer}
+          checkedColor='#6ABDA6'
+        />
+        <CheckBox
+          title={
+            <View style={styles.checkboxContentContainer}>
+              <Text style={styles.checkboxText}>¿Usted ha leído y acepta la </Text>
+              <TouchableOpacity onPress={handlePrivacyPress}>
+                <Text style={styles.linkText}>Política de Privacidad</Text>
+              </TouchableOpacity>
+              <Text style={styles.checkboxText}>?</Text>
+            </View>
+          }
+          checked={isCheckedPrivacy}
+          onPress={() => setIsCheckedPrivacy(!isCheckedPrivacy)}
+          containerStyle={styles.checkboxContainer}
+          checkedColor='#6ABDA6'
+        />
+      </View>
           <View style={styles.btn}>
             <ButtonAuth text='Registrate aquí' onPress={onSubmit} />
           </View>
@@ -231,17 +252,20 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginTop: 10,
   },
-  checkboxContainer: {
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    padding: 0,
-    margin: 0,
-    width: '100%',
+  checkboxContentContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
   },
+  
+  linkText: {
+    color: '#6ABDA6',
+    textDecorationLine: 'underline',
+  },
+  
   checkboxText: {
     fontSize: 14,
-    fontFamily: 'poppins600',
-    flexShrink: 1,
+    color: '#333',
   },
   btn: {
     marginTop: '6%'

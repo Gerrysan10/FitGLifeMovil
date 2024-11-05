@@ -126,7 +126,6 @@ const ModalEdit = ({ userId, uidUser, routineId, isVisible, onClose, routineData
 
         // Referencia a la subcolección details
         const detailsRef = collection(db, `users/${userId}/details`);
-
         // Crear una consulta para obtener los documentos en 'details' relacionados con la rutina
         const q = query(detailsRef, where('routineId', '==', routineId));
         const detailsSnapshot = await getDocs(q);
